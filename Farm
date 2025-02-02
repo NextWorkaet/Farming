@@ -777,10 +777,12 @@ while true do
                                     TaskDetecter.Text = "Task: pet me"..utf8.char(0x1F44B) .. utf8.char(0x2764)
                                     print(num_pets)
                                     for i = 1,2 do
+                                        DropPet()
                                         local args = {[1] = game.workspace:WaitForChild("Pets"):GetChildren()[1] or game.workspace:WaitForChild("Pets"):FindFirstChild(_G.PetKind)} 
                                         game:GetService("ReplicatedStorage"):WaitForChild("API"):WaitForChild("AdoptAPI/FocusPet"):FireServer(unpack(args))
                                         local args = {[1] = _G.Pet}                                   
                                         game:GetService("ReplicatedStorage"):WaitForChild("API"):WaitForChild("AilmentsAPI/ProgressPetMeAilment"):FireServer(unpack(args))
+                                        task.wait(.5)
                                     end
                                 end
                             end

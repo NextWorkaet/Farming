@@ -44,6 +44,7 @@ end)
 
 local RunService = game:GetService("RunService")
 local Tasks = {
+    "pet_me",
     "hungry",
     "thirsty",
     "sick",
@@ -53,6 +54,7 @@ local Tasks = {
     "bored",
     "salon",
     "school",
+    "moon",
     "pizza_party",
     "play",
     "ride",

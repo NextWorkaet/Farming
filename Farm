@@ -495,9 +495,16 @@ while true do
                                     for i = 1,3 do
                                         for num, i in pairs(playerData.inventory.toys) do
                                             if i.kind == 'squeaky_bone_default' then
+                                                local a = 0
                                                 local args = {[1] = "__Enum_PetObjectCreatorType_1",[2] = {["reaction_name"] = "ThrowToyReaction",["unique_id"] = num}}       
                                                 game:GetService("ReplicatedStorage"):WaitForChild("API"):WaitForChild("PetObjectAPI/CreatePetObject"):InvokeServer(unpack(args))
-                                                repeat wait() until workspace.PetObjects:WaitForChild("SqueakyBone")
+                                                repeat
+                                                    wait(1)
+                                                    a=+1
+                                                    if a >= 20 then
+                                                        break                                    
+                                                    end
+                                                until workspace.PetObjects:FindFirstChild("SqueakyBone")
                                                 local args = {[1] = workspace:WaitForChild("Pets"):GetChildren()[1],[2] = workspace.PetObjects.SqueakyBone}
                                                 game:GetService("ReplicatedStorage"):WaitForChild("API"):WaitForChild("PetObjectAPI/GrabPetObject"):FireServer(unpack(args))
                                                 task.wait(3)
